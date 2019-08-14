@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap');
+@import "mixins";
+@import "variables";
+html{
+  font-size: 12px;
+  background-color: #F8F8F8;
+}
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.boards{
+  height: 100vh;
+  padding-top: 40px;
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(flex-start);
+  .board{
+    max-width: 350px;
+    margin-right:4rem;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}

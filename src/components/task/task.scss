@@ -1,0 +1,126 @@
+@import "../../variables";
+@import "../../mixins";
+
+.task {
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.42);
+  padding: 20px 30px;
+  position: relative;
+  background:$white;
+  @include border-radius(1rem);
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 100%;
+    right: 0;
+    top: 0;
+    @include transition(all, 0.4s, ease);
+    @include border-radii(0, 1rem, 1rem, 0);
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+      @include border-radius(10px);
+    }
+
+    .task-header {
+      .date {
+        color: $white;
+      }
+
+    }
+
+    .task-body {
+      .title {
+        .text {
+          color: $white;
+        }
+      }
+    }
+
+    svg {
+      path {
+        fill: $white;
+      }
+
+      #c1 {
+        fill: $white;
+      }
+
+      #c2 {
+        stroke: none;
+      }
+    }
+  }
+
+  .task-header {
+    position: absolute;
+    right: 3rem;
+    top: 0.5rem;
+    color: $gray;
+    @include flexbox();
+    @include justify-content(flex-end);
+    @include align-items(center);
+
+    .date {
+      @include transition(all, 0.4s, ease);
+      font-size: 0.6rem;
+      font-weight: 700;
+    }
+
+    .icon {
+      margin-left: 5px;
+      svg{
+        height: 10px;
+        width: 10px;
+        display: block;
+      }
+    }
+  }
+
+  .task-body {
+    position: relative;
+
+    .title {
+      font-weight: 500;
+      font-size: 0.9rem;
+      @include flexbox();
+      @include align-items(center);
+
+      .icon {
+        margin-right: 2rem;
+
+        svg {
+          display: block;
+          height: 10px;
+          width: 10px;
+          path {
+            fill: $white;
+            @include transition(all, 0.4s, ease);
+          }
+          #c1 {
+            fill: white;
+            @include transition(all, 0.4s, ease);
+          }
+
+          #c2 {
+            @include transition(all, 0.4s, ease);
+          }
+        }
+      }
+
+      .text {
+        @include transition(all, 0.4s, ease);
+        color: $txtcolor;
+      }
+    }
+
+    .description {
+      display: none;
+    }
+  }
+}

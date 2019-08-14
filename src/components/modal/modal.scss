@@ -1,0 +1,51 @@
+@import "../../variables";
+@import "../../mixins";
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  @include flexbox();
+  @include justify-content(center);
+  @include align-items(center);
+  .inner {
+    padding: 40px;
+    background: white;
+    min-width: 40%;
+    @include border-radius(20px);
+    .inner-header {
+      margin-bottom: 30px;
+      .title {
+        font-weight: 300;
+      }
+    }
+    .inner-body {
+      margin-bottom: 30px;
+      .description{
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+    }
+    .inner-footer {
+      @include flexbox();
+      @include justify-content(flex-end);
+      .modal-button {
+        outline: none;
+        border: 0;
+        font-size: 1.5rem;
+        background: #35A7FF;
+        height: 40px;
+        color: $white;
+        padding: 5px 20px;
+        font-weight: 700;
+        cursor: pointer;
+        text-transform: uppercase;
+        @include border-radius(10px);
+      }
+    }
+  }
+}
